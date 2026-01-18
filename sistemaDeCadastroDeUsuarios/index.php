@@ -45,8 +45,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }catch(mysqli_sql_exception){
         echo "Erro: O nome de usuário já existe. Por favor, escolha outro.";
     }
-    mysqli_query($conn, $sql);
-    echo "Usuário cadastrado com sucesso!";
   }
 
  
