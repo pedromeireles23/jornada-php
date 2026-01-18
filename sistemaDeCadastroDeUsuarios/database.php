@@ -6,13 +6,13 @@ $db_pass = "";
 $db_name = "crudSimples";
 $conn = "";
 
-$conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
+try {
+  $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
+  
+}catch(mysqli_sql_exception ){
+  echo "Erro na conexão com o banco de dados: ";
+};
 
-if($conn){
-  echo "Conexão bem sucedida!";
-}else{
-  echo "Erro na conexão";
-}
 
 
 
