@@ -38,6 +38,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     $hashed_password = password_hash($senha, PASSWORD_DEFAULT);
     $sql = "INSERT INTO usuarios (usuario, senha) VALUES ('$usuario', '$hashed_password')";
+
+    try{
+      mysqli_query($conn, $sql);
+      echo "Usuário cadastrado com sucesso!";
+    }catch(mysqli_sql_exception){
+        echo "Erro: O nome de usuário já existe. Por favor, escolha outro.";
+    }
     mysqli_query($conn, $sql);
     echo "Usuário cadastrado com sucesso!";
   }
