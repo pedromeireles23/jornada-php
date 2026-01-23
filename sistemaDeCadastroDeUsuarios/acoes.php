@@ -1,7 +1,7 @@
 <?php 
-session_start();
-require ("database.php");
-if(isset($_POST['cadastrar_usuario'])){
+  session_start();
+  require ("database.php");
+  if(isset($_POST['cadastrar_usuario'])){
   $usuario = filter_input(INPUT_POST, "usuario", FILTER_SANITIZE_SPECIAL_CHARS);
   $senha = filter_input(INPUT_POST, "senha", FILTER_SANITIZE_SPECIAL_CHARS);
   $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -25,7 +25,7 @@ if(isset($_POST['cadastrar_usuario'])){
     }
   }
 
-}
+  }
 
 
   if(isset($_POST['editar_usuario'])){
@@ -50,6 +50,21 @@ if(isset($_POST['cadastrar_usuario'])){
       exit;
     }catch(mysqli_sql_exception){
         $_SESSION['msg'] = "Erro: Usuário não foi atualizado.";
+        header("Location: index.php");
+    }
+  }
+
+
+  if(isset($_POST['deletar_usuario'])){
+    $usuario_id = intval($_POST['deletar_usuario']);
+    $sql = "DELETE FROM usuarios WHERE id=$usuario_id";
+    try{
+      mysqli_query($conn, $sql);
+      $_SESSION['msg'] = "Usuário deletado com sucesso!";
+      header("Location: index.php");
+      exit;
+    }catch(mysqli_sql_exception){
+        $_SESSION['msg'] = "Erro: Usuário não foi deletado.";
         header("Location: index.php");
     }
   }
