@@ -1,5 +1,5 @@
 <?php 
-include ("database.php");
+require ("database.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,3 +59,4 @@ include ("database.php");
 
 </html>
 
+ 

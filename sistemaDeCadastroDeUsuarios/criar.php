@@ -3,13 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <title>Cadastro de Usuário</title>
 </head>
 <body>
   <h1>
     Sistema de Cadastro de Usuários
   </h1>
-
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>Adicionar Usuário
+            <a href="index.php" class="btn btn-secondary float-end">Voltar</a>
+          </h4>
+        </div>
+        <div class="card-body">
+          <form action="criar.php" method="post">
+            <div class="mb-3">
+              <label>Nome:</label>
+              <input type="text" name="usuario" class="form-control">
+            </div>
+             <div class="mb-3">
+              <label>Email:</label>
+              <input type="text" name="email" class="form-control">
+            </div>
+             <div class="mb-3">
+              <label>Senha</label>
+              <input type="password" name="senha" class="form-control">
+            </div>
+             <div class="mb-3">
+              <button type="submit" name="cadastrar_usuario" class="btn btn-primary">Cadastrar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
     <label for="usuario">Usuário:</label>
     <input type="text" name="usuario" id="usuario" required>
@@ -19,30 +51,7 @@
     <br><br>
     <input type="submit" value="Cadastrar">
   </form>
-<?php 
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-  $usuario = filter_input(INPUT_POST, "usuario", FILTER_SANITIZE_SPECIAL_CHARS);
-  $senha = filter_input(INPUT_POST, "senha", FILTER_SANITIZE_SPECIAL_CHARS);
-
-  if(empty($usuario) || empty($senha)){
-    echo "Por favor, preencha todos os campos.";
-    
-  }else{
-    
-    $hashed_password = password_hash($senha, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO usuarios (usuario, senha) VALUES ('$usuario', '$hashed_password')";
-
-    try{
-      mysqli_query($conn, $sql);
-      echo "Usuário cadastrado com sucesso!";
-    }catch(mysqli_sql_exception){
-        echo "Erro: O nome de usuário já existe. Por favor, escolha outro.";
-    }
-  }
-
- 
-}
-?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
