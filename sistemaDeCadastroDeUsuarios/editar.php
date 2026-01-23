@@ -32,6 +32,7 @@ require ("database.php");
               
           ?>
           <form action="acoes.php" method="post">
+            <input type="hidden" name="usuario_id" value="<?= $row['id'] ?> ">
             <div class="mb-3">
               <label>Nome:</label>
               <input type="text" name="usuario" value="<?= $row['usuario'] ?> "class="form-control">
