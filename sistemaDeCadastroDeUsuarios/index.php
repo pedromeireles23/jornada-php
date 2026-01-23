@@ -47,7 +47,7 @@ require ("database.php");
         echo "<td>" . $row['reg_data'] . "</td>";
         echo "<td>" . $row['email'] . "</td>";
         echo '<td>
-        <a href="#" class="btn btn-primary btn-sm">Editar</a>
+        <a href="editar.php?id='.$row['id'].' " class="btn btn-primary btn-sm">Editar</a>
         
         <form action="" method="POST" class="d-inline">
           <button type="submit" value="1" class="btn btn-danger btn-sm">Excluir</button>
