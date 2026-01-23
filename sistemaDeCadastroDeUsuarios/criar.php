@@ -42,15 +42,6 @@
     </div>
   </div>
 </div>
-  <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-    <label for="usuario">Usuário:</label>
-    <input type="text" name="usuario" id="usuario" required>
-    <br><br>
-    <label for="senha">Senha:</label>
-    <input type="password" name="senha" id="senha" required>
-    <br><br>
-    <input type="submit" value="Cadastrar">
-  </form>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>

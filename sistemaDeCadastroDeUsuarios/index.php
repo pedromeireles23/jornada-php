@@ -31,23 +31,37 @@ require ("database.php");
         <th>ID</th>
         <th>Nome</th>
         <th>Data Cadastro</th>
+        <th>E-mail</th>
         <th>Ações</th>
       </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>1</td>
-      <td>teste</td>
-      <td>Data</td>
-      <td>
+       <?php 
+    $sql_consulta = "SELECT id, usuario, reg_data,email FROM usuarios";
+    $resultado = mysqli_query($conn, $sql_consulta);
+    if($resultado){
+      while($row = mysqli_fetch_assoc($resultado)){
+        echo "<tr>";
+        echo "<td>" . $row['id'] . "</td>";
+        echo "<td>" . $row['usuario'] . "</td>";
+        echo "<td>" . $row['reg_data'] . "</td>";
+        echo "<td>" . $row['email'] . "</td>";
+        echo '<td>
         <a href="#" class="btn btn-primary btn-sm">Editar</a>
         
         <form action="" method="POST" class="d-inline">
-          <button type="submit" value = "1" class="btn btn-danger btn-sm">Excluir</button>
+          <button type="submit" value="1" class="btn btn-danger btn-sm">Excluir</button>
         </form>
-      </td>
-    </tr>
-   
+      </td>';
+      echo "</tr>";
+        
+      }
+
+    }else{
+      echo "<h5>Nenhum usuário encontrado</h5>";
+    }
+    mysqli_close($conn);
+    ?> 
     </tbody>
   </table>
   </div>
