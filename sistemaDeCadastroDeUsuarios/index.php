@@ -49,8 +49,8 @@ require ("database.php");
         echo '<td>
         <a href="editar.php?id='.$row['id'].' " class="btn btn-primary btn-sm">Editar</a>
         
-        <form action="acoes.php" method="POST" class="d-inline">
-          <button type="submit" name="deletar_usuario" value="'.$row['id'].'" class="btn btn-danger btn-sm">Excluir</button>
+        <form action="acoes.php" "method="POST" class="d-inline">
+          <button type="submit" onclick="return confirm(\'Tem certeza que deseja excluir?\')" name="deletar_usuario" value="' . $row['id'] . '" class="btn btn-danger btn-sm">Excluir</button>
         </form>
       </td>';
       echo "</tr>";
