@@ -20,7 +20,7 @@
           </h4>
         </div>
         <div class="card-body">
-          <form action="criar.php" method="post">
+          <form action="acoes.php" method="post">
             <div class="mb-3">
               <label>Nome:</label>
               <input type="text" name="usuario" class="form-control">
