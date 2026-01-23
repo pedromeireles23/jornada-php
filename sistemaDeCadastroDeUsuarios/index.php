@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require ("database.php");
 ?>
 <!DOCTYPE html>
@@ -12,6 +13,7 @@ require ("database.php");
 </head>
 <body>
   <div class="container mt-4">
+    <?php include('mensagem.php') ?>
     <div class="row">
       <div class="col-md-12">
         <div class="card">

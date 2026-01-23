@@ -16,9 +16,12 @@ if(isset($_POST['cadastrar_usuario'])){
 
     try{
       mysqli_query($conn, $sql);
-      echo "Usuário cadastrado com sucesso!";
+      $_SESSION['msg'] = "Usuário cadastrado com sucesso!";
+      header("Location: index.php");
+      exit;
     }catch(mysqli_sql_exception){
-        echo "Erro: O nome de usuário já existe. Por favor, escolha outro.";
+        $_SESSION['msg'] = "Erro: O nome de usuário já existe. Por favor, escolha outro.";
+        header("Location: index.php");
     }
   }
 
