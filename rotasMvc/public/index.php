@@ -1,5 +1,6 @@
 <?php
-echo '<h1> Olá, Teste de rota PHP! </h1>';
+require_once '../app/init.php';
 
+$app = new App;
 
 ?>
